@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Inicia Sesion" />
+        <item
+            android:id="@+id/nav_datos_usuario"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Datos de usuario" />
+        <item
+            android:id="@+id/nav_busca_ocupantes"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Busca ocupantes" />
+        <item
+            android:id="@+id/nav_busca_coches"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Busca coches" />
+    </group>
+
+    <item android:title="Communicate"></item>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listado"/>
+
+</menu>

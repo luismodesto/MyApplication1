@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.www.myapplication.MapsActivity"/>
+      <point      
+        x = "1036"      
+        y = "112"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.kioto.LoginActivity"/>
+      <point      
+        x = "1972"      
+        y = "120"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.www.myapplication.Main2Activity"/>
+      <point      
+        x = "2884"      
+        y = "144"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.mapas.buscaUsuarios"/>
+      <point      
+        x = "1988"      
+        y = "1424"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.chat.mensajes"/>
+      <point      
+        x = "500"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.kioto.DatosUsuario"/>
+      <point      
+        x = "1084"      
+        y = "1444"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.kioto.SettingsActivity"/>
+      <point      
+        x = "3324"      
+        y = "124"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.mapas.ActivityRuta"/>
+      <point      
+        x = "120"      
+        y = "1480"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.kioto.MainActivity"/>
+      <point      
+        x = "116"      
+        y = "104"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.mapas.MapsUbicacion"/>
+      <point      
+        x = "1060"      
+        y = "128"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "es.ieslosviveros.chat.Contactos_obsolet"/>
+      <point      
+        x = "3164"      
+        y = "1660"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>
