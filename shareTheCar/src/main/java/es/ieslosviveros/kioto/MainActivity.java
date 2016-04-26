@@ -437,6 +437,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //i = new Intent(this, SettingsActivity.class);
             //startActivity(i);
             webView.loadUrl("http://www.ieslosviveros.es/androide/index.php?code=acerca_de");
+            
             break;
         case 5:
             i = new Intent(this, LoginActivity.class);

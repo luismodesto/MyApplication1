@@ -88,8 +88,8 @@ public class Contactos extends AppCompatActivity implements IObservable {
             }
         });
 //////////////////////////
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+     //   ActionBar actionBar = getActionBar();
+       // actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         //////////////////////
