@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Location lastKnownLocation_byGps = locat.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-        } catch (SecurityException e) {
+        } catch (Exception e) {
         //dialogGPS(this.getContext()); // lets the user know there is a problem with the gps
             e.printStackTrace();
     }
@@ -211,16 +211,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                  {
                     url = "http://www.ieslosviveros.es/androide/index.php";
                     Map<String, String> params = new HashMap<String, String>();
-                     params.put("code", "reg_id_gcm");
-                     params.put("android_id", "" + prefs.getString("android_id", ""));
+                    params.put("code", "reg_id_gcm");
+                    params.put("android_id", "" + prefs.getString("android_id", ""));
                     params.put("user_id", "" + prefs.getString("user_id", ""));
                     params.put("reg_id", "" + registrationId);
                     params.put("last_loc", "" + aqui);
-                     System.out.println("---------------enviado----------------- " + registrationId + " - " + "id");
+                    System.out.println("---------------enviado----------------- " + registrationId + " - " + "id");
 
-                     SharedPreferences.Editor editor = prefs.edit();
-                     editor.putString("reg_id", "" + registrationId);
-                     editor.commit();
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("reg_id", "" + registrationId);
+                    editor.commit();
                     request.getRespuesta(url, params);
                 }
                 Log.d("Registration id", registrationId);
@@ -396,11 +396,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.add(0, 1, 0, "Buscar vehiculos").setShortcut('3', 'c');
             menu.add(0, 2, 0, "Buscar ocupantes").setShortcut('4', 's');
             menu.add(0, 3, 0, "Mensajes").setShortcut('4', 's');
-            menu.add(0, 4, 0, "Opciones").setShortcut('4', 's');
+            menu.add(0, 4, 0, "Acerca de").setShortcut('4', 's');
         }else {
             menu.add(0, 0, 0, "Datos de usuario").setShortcut('3', 'c');
             menu.add(0, 5, 0, "Login con email y clave").setShortcut('3', 'c');
-            menu.add(0, 4, 0, "Opciones").setShortcut('4', 's');
+            menu.add(0, 4, 0, "Acerca de").setShortcut('4', 's');
         }
         return true;
     }
@@ -434,8 +434,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
             break;
         case 4:
-            i = new Intent(this, SettingsActivity.class);
-            startActivity(i);
+            //i = new Intent(this, SettingsActivity.class);
+            //startActivity(i);
+            webView.loadUrl("http://www.ieslosviveros.es/androide/index.php?code=acerca_de");
             break;
         case 5:
             i = new Intent(this, LoginActivity.class);
