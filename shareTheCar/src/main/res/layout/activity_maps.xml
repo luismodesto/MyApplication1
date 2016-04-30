@@ -5,4 +5,39 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.ieslosviveros.mapas.buscaUsuarios" />
+    tools:context="es.ieslosviveros.mapas.buscaUsuarios" >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:text="Demo Button"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dip"
+        android:text=" Rutas"
+        android:paddingTop="15dp"
+        android:textColor="#0000ff"
+        android:textSize="20dp" />
+    <ListView
+        android:layout_weight="7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:listSelector="#b5b5b5"
+        android:descendantFocusability="blocksDescendants"
+        android:background="?android:attr/activatedBackgroundIndicator"
+        android:id="@+id/lista_de_rutas"></ListView>
+    </LinearLayout>
+</fragment>

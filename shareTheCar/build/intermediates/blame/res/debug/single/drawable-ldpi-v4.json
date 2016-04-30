@@ -36,12 +36,20 @@
         "source": "C:\\android\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_warning_24dp.png"
     },
     {
-        "merged": "C:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_warning_24dp.png",
-        "source": "C:\\android\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_warning_24dp.png"
-    },
-    {
         "merged": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_thumb_up_24dp.png",
         "source": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_thumb_up_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_warning_24dp.png",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_warning_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_thumb_up_24dp.png",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_thumb_up_24dp.png"
+    },
+    {
+        "merged": "C:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_warning_24dp.png",
+        "source": "C:\\android\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_warning_24dp.png"
     },
     {
         "merged": "E:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_thumb_up_24dp.png",

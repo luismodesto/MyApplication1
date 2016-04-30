@@ -79,7 +79,7 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
         setContentView(R.layout.activity_maps);
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading Articles...");
+        pDialog.setMessage("Cargando rutas...");
         pDialog.show();
         rutas=new ArrayList<Coches>();
         mensas=new mensajes();
@@ -153,8 +153,8 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
         prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
         String id_origen=prefs.getString("user_id", "");
 
-
-        pideRutas(0,0,0,0,id_origen);
+        String turno=prefs.getString("turno", "");
+        pideRutas(0,0,0,0,id_origen,turno);
 
         //////////////////////////////////////////////////////////////////////
 
@@ -363,8 +363,8 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
 
 
     /////////////////////////////////////////////////////////////////////////
-    public void pideRutas(double x1, double y1, double x2, double y2,String user_id) {
-        final String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_cars&id="+user_id+"&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1;
+    public void pideRutas(double x1, double y1, double x2, double y2,String user_id,String turno) {
+        final String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_cars&id="+user_id+"&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1+"&turno="+turno;
         JsonObjectRequest jsonRequest = new JsonObjectRequest
                 (Request.Method.GET, url1, null, new Response.Listener<JSONObject>() {
                     //pDialog.show();

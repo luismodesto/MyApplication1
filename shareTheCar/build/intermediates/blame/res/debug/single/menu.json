@@ -28,20 +28,24 @@
         "source": "E:\\android\\MyApplication\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
+        "merged": "E:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
+        "source": "E:\\android\\MyApplication2\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
         "merged": "F:\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "F:\\MyApplication\\app\\src\\main\\res\\menu\\main.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
-        "source": "E:\\android\\MyApplication2\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+        "merged": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
+        "source": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
         "merged": "F:\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
         "source": "F:\\MyApplication\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
-        "merged": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
-        "source": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\src\\main\\res\\menu\\activity_main_drawer.xml"
     },
     {
         "merged": "C:\\Users\\papa\\AndroidStudioProjects\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
@@ -66,6 +70,10 @@
     {
         "merged": "E:\\android\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "E:\\android\\MyApplication2\\shareTheCar\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\src\\main\\res\\menu\\main.xml"
     },
     {
         "merged": "C:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",

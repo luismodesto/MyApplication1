@@ -1,19 +1,19 @@
 [
     {
-        "merged": "E:\\temp\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
-        "source": "E:\\temp\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
+        "merged": "E:\\android\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
+        "source": "E:\\android\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
         "merged": "E:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
         "source": "E:\\android\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
-        "source": "E:\\android\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
+        "merged": "E:\\temp\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
+        "source": "E:\\temp\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
-        "source": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
         "merged": "E:\\temp\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
@@ -24,16 +24,24 @@
         "source": "C:\\android\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
-        "source": "E:\\android\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
+        "merged": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
+        "source": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
+        "source": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
+    },
+    {
+        "merged": "E:\\android\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
+        "source": "E:\\android\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
     },
     {
         "merged": "C:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
         "source": "C:\\android\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
-        "source": "E:\\android\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
+        "merged": "E:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml",
+        "source": "E:\\android\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
         "merged": "E:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
@@ -48,11 +56,11 @@
         "source": "C:\\android\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_warning_24dp.xml"
     },
     {
-        "merged": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
-        "source": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
-    },
-    {
         "merged": "E:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
         "source": "E:\\android\\MyApplication\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
+    },
+    {
+        "merged": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml",
+        "source": "E:\\android\\MyApplication2\\MyApplication2\\shareTheCar\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_thumb_up_24dp.xml"
     }
 ]

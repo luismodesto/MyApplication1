@@ -82,7 +82,7 @@ private PintaRuta pintaRuta;
 
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading Articles...");
+        pDialog.setMessage("Cargando Usuarios...");
 
         pDialog.show();
 
@@ -159,19 +159,20 @@ private PintaRuta pintaRuta;
                 y1 = mMap.getProjection().getVisibleRegion().nearLeft.longitude;
                 x2 = mMap.getProjection().getVisibleRegion().farRight.latitude;
                 y2 = mMap.getProjection().getVisibleRegion().farRight.longitude;
-                String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1;
+                //String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1+"&turno="+turno;
                 // Point p1=new Point();p1.set(0,0);
                 Point p2 = new Point();
                 p2.set(20, 10);
                 //z1 = "" + mMap.getProjection().fromScreenLocation(p1).toString();
                 //System.out.println(url1);
                 //pDialog.show();
-                pideMarcadores(x1, y1, x2, y2);
+                String turno=prefs.getString("turno", "");
+                pideMarcadores(x1, y1, x2, y2,turno);
                // hidePDialog();
 
             }
         });
-        String url = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=37.349061891050276&x1=37.44561547273462&y2=-5.948801269531283&y1=-6.031198730468783";
+        //String url = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=37.349061891050276&x1=37.44561547273462&y2=-5.948801269531283&y1=-6.031198730468783";
         String x1, x2, y1, y2, z1, z2, z3, z4;
 
 
@@ -179,7 +180,8 @@ private PintaRuta pintaRuta;
         y1 = "" + mMap.getProjection().getVisibleRegion().nearLeft.longitude;
         x2 = "" + mMap.getProjection().getVisibleRegion().farRight.latitude;
         y2 = "" + mMap.getProjection().getVisibleRegion().farRight.longitude;
-        String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x2 + "&x1=" + x1 + "&y2=" + y2 + "&y1=" + y1;
+        String turno=prefs.getString("turno", "");
+        String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x2 + "&x1=" + x1 + "&y2=" + y2 + "&y1=" + y1+"&turno="+turno;
         Point p1 = new Point();
         p1.set(0, 0);
         Point p2 = new Point();
@@ -351,8 +353,8 @@ private PintaRuta pintaRuta;
 
     }
 
-    public void pideMarcadores(double x1, double y1, double x2, double y2) {
-        final String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1;
+    public void pideMarcadores(double x1, double y1, double x2, double y2,String turno) {
+        final String url1 = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=" + x1 + "&x1=" + x2 + "&y2=" + y2 + "&y1=" + y1+"&turno="+turno;
         JsonObjectRequest jsonRequest = new JsonObjectRequest
                 (Request.Method.GET, url1, null, new Response.Listener<JSONObject>() {
                     //pDialog.show();

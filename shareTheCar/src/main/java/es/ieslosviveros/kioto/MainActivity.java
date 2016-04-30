@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ///////////////////////////////////////////////////
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
+*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -436,7 +436,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         case 4:
             //i = new Intent(this, SettingsActivity.class);
             //startActivity(i);
-            webView.loadUrl("http://www.ieslosviveros.es/androide/index.php?code=acerca_de");
+            url="http://www.ieslosviveros.es/androide/index.php";
+            Map<String,String> params=new HashMap<String,String>();
+            params.put("code", "acerca_de");
+            request.getRespuesta(url, params);
+
+
+            //webView.loadUrl("http://www.ieslosviveros.es/androide/index.php?code=acerca_de");
             
             break;
         case 5:

@@ -85,6 +85,91 @@
         ]
     },
     {
+        "outputFile": "C:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 74,
+                    "endOffset": 125
+                },
+                "from": {
+                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 234,
+                        "endColumn": 74,
+                        "endOffset": 304
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 130,
+                    "endColumn": 86,
+                    "endOffset": 212
+                },
+                "from": {
+                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 309,
+                        "endColumn": 86,
+                        "endOffset": 391
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 217,
+                    "endLine": 6,
+                    "endColumn": 12,
+                    "endOffset": 393
+                },
+                "from": {
+                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 396,
+                        "endLine": 8,
+                        "endColumn": 12,
+                        "endOffset": 572
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 398,
+                    "endLine": 9,
+                    "endColumn": 12,
+                    "endOffset": 586
+                },
+                "from": {
+                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 577,
+                        "endLine": 11,
+                        "endColumn": 12,
+                        "endOffset": 765
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "C:\\android\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
         "map": [
             {
@@ -170,7 +255,7 @@
         ]
     },
     {
-        "outputFile": "C:\\android\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
+        "outputFile": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
         "map": [
             {
                 "to": {
@@ -181,7 +266,7 @@
                     "endOffset": 125
                 },
                 "from": {
-                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -200,7 +285,7 @@
                     "endOffset": 212
                 },
                 "from": {
-                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -220,7 +305,7 @@
                     "endOffset": 393
                 },
                 "from": {
-                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -241,7 +326,7 @@
                     "endOffset": 586
                 },
                 "from": {
-                    "file": "C:\\android\\MyApplication2\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -340,7 +425,7 @@
         ]
     },
     {
-        "outputFile": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
+        "outputFile": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\res\\merged\\debug\\values-v22\\values-v22.xml",
         "map": [
             {
                 "to": {
@@ -351,7 +436,7 @@
                     "endOffset": 125
                 },
                 "from": {
-                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -370,7 +455,7 @@
                     "endOffset": 212
                 },
                 "from": {
-                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -390,7 +475,7 @@
                     "endOffset": 393
                 },
                 "from": {
-                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -411,7 +496,7 @@
                     "endOffset": 586
                 },
                 "from": {
-                    "file": "C:\\Users\\App\\OneDrive\\androidstudio\\MyApplication\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
+                    "file": "C:\\Users\\App\\AndroidStudioProjects\\MyApplication1\\shareTheCar\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-v22\\values-v22.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,

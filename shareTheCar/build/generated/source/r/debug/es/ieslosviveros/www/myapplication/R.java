@@ -2897,7 +2897,6 @@ containing a value of this type.
         public static final int exitUntilCollapsed=0x7f0f0018;
         public static final int expand_activities_button=0x7f0f0065;
         public static final int expanded_menu=0x7f0f0078;
-        public static final int fab=0x7f0f00a0;
         public static final int fecha_noticia=0x7f0f00ec;
         public static final int fill=0x7f0f002e;
         public static final int fill_horizontal=0x7f0f002f;
@@ -2929,10 +2928,11 @@ containing a value of this type.
         public static final int line1=0x7f0f00f4;
         public static final int line3=0x7f0f00f8;
         public static final int linear=0x7f0f00ae;
-        public static final int lineartab=0x7f0f009e;
+        public static final int lineartab=0x7f0f009f;
         public static final int listMode=0x7f0f000c;
         public static final int list_item=0x7f0f0068;
         public static final int list_view_inside_nav=0x7f0f009d;
+        public static final int lista_de_rutas=0x7f0f009e;
         public static final int listado=0x7f0f0109;
         public static final int localidad=0x7f0f00b9;
         public static final int login=0x7f0f0096;
@@ -3061,7 +3061,7 @@ containing a value of this type.
         public static final int title_bar=0x7f0f00dd;
         public static final int title_template=0x7f0f006f;
         public static final int titulo_noticia=0x7f0f00eb;
-        public static final int toolbar=0x7f0f009f;
+        public static final int toolbar=0x7f0f00a0;
         public static final int top=0x7f0f0026;
         public static final int topPanel=0x7f0f006e;
         public static final int turno=0x7f0f00c8;
