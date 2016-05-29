@@ -107,8 +107,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
-    //    mEmailView.setText("pepe@pepe.com");
-      //  mPasswordView.setText("pepepe");
+        mEmailView.setText("luismodesto@ieslosviveros.es");
+        mPasswordView.setText("qwerty");
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);

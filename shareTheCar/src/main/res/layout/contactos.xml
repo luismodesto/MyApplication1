@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/relative_layout"
-    tools:context="es.ieslosviveros.chat.Contactos_obsolet"
+    tools:context="es.ieslosviveros.chat.Contactos"
     android:clickable="true">
     <ListView
         android:id="@+id/msgListViewContactos"
@@ -30,9 +30,18 @@
         android:orientation="horizontal"
         android:paddingBottom="2dp" >
 
-
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_menu_revert" />
 
           </LinearLayout>
+
+
+
  <!--   <Button android:layout_alignParentRight="true" android:text="X"
         android:textColor="#FFF" android:background="@drawable/round_button_background"
         android:gravity="center_vertical|center_horizontal"

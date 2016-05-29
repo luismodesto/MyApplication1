@@ -89,42 +89,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public WebView webView;
     float version;
     String caducada;
+    Funciones funciones;
     public ArrayList<IObservable> observerlist=new ArrayList<IObservable>();
 
     private String[] dayOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"};
 
     public static int NOTIFICATION_ID = 1010;
     public static LatLng aqui;
-
+String hay_notificacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         activity=this;
-
+        funciones =new Funciones();
         super.onCreate(savedInstanceState);
         appContext=getApplicationContext();
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        String noti_url ="",notification_id="";
-
+        String noti_url ="url",notification_id="notification_id";
+        webView=(WebView) this.findViewById(R.id.webView1);
+        Noticia noticia=new Noticia("hola","cara","cola");
         Intent intent = getIntent();
+        if (intent.getExtras()!=null){
+            System.out.println("hay extra ----------------------" +  noti_url );
+        } else System.out.println("No hay extra ----------------------" +  noti_url );
         if (intent.hasExtra(notification_id)){
+            System.out.println("Notification2 ----------------------" +  noti_url );
             notification_id = getIntent().getExtras().getString("notification_id");
-            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.cancel(Integer.parseInt(notification_id));
+           // NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+           // notificationManager.cancel(Integer.parseInt(notification_id));
         }
+        hay_notificacion="";
         if (intent.hasExtra(noti_url)){
             noti_url = getIntent().getExtras().getString("url");
             webView.getSettings().setBuiltInZoomControls(true);
             webView.setWebViewClient(new WebViewClient());
             webView.getSettings().setJavaScriptEnabled(true);
-            if (noticia.enlace.indexOf("http://")==-1 && noti_url.indexOf("https://")==-1)
+//            System.out.println("Notification1 ----------------------" +  noti_url );
+            hay_notificacion="1";
+            if (noti_url.indexOf("http://")==-1 && noti_url.indexOf("https://")==-1) {
+                hay_notificacion="http://" + noti_url;
                 webView.loadUrl("http://" + noti_url);
-            else
-                webView.loadUrl( noti_url);
+            }
+            else {
+                hay_notificacion=noti_url;
+                webView.loadUrl(noti_url);
+            }
 
         }
+        
 //////////////////////////////////////permisos para gps/////////
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
 
@@ -157,8 +171,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //////////////////////
 
         prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
-        version=prefs.getFloat("version", 0);
-        caducada=prefs.getString("caducada","0");
+
+            version = Float.parseFloat( prefs.getString("version", "0"));
+            caducada = prefs.getString("caducada", "0");
+
         if (caducada.equals("1")){
             TextView texto=(TextView) this.findViewById(R.id.encabezado);
             texto.setText("Nueva version disponible");
@@ -170,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         Class[] parameterTypes = new Class[1];
 
-        webView=(WebView) this.findViewById(R.id.webView1);;
+
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setLoadWithOverviewMode(false);
         webView.getSettings().setUseWideViewPort(false);
@@ -191,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         GCMClientManager pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
-        try {
+        /*try {
             LocationManager locat = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Location lastKnownLocation_byGps = locat.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -199,8 +215,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } catch (Exception e) {
         //dialogGPS(this.getContext()); // lets the user know there is a problem with the gps
             e.printStackTrace();
-    }
-
+    }*/
+        aqui =funciones.getAqui();
         pushClientManager.registerIfNeeded(new GCMClientManager.RegistrationCompletedHandler() {
 //////////////////////obtengo la loc
 
@@ -240,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Obtener listview
         //  drawerList = (ListView) findViewById(R.id.left_drawer);
 
-        ///////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////solo hago el request si no viene de
         url="http://www.ieslosviveros.es/androide/index.php";
         Map<String,String> params=new HashMap<String,String>();
             params.put("code", "indice_noticias");
@@ -256,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         arregloNoticias = new ArrayList<Noticia>();
-        Noticia noticia=new Noticia("hola","cara","cola");
+
         //arregloNoticias.add(noticia);
         //adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arregloCadenas);
         lista=(ListView)findViewById(R.id.list_view_inside_nav);
@@ -315,16 +331,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ///////////////////////////////////////////////////
 
-      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
 
-*/
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -375,8 +391,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.add(0, 6, 0, "Acerca de").setShortcut('4', 's');
             //menu.add(0, 4, 0, "Opciones").setShortcut('4', 's');
         }else {
-            menu.add(0, 0, 0, "Datos de usuario").setShortcut('3', 'c');
-            menu.add(0, 5, 0, "Login con email y clave").setShortcut('3', 'c');
+           // menu.add(0, 0, 0, "Datos de usuario").setShortcut('3', 'c');
+            menu.add(0, 5, 0, "Acceso o registro").setShortcut('3', 'c');
             menu.add(0, 6, 0, "Acerca de").setShortcut('4', 's');
         }
 
@@ -398,8 +414,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.add(0, 3, 0, "Mensajes").setShortcut('4', 's');
             menu.add(0, 4, 0, "Acerca de").setShortcut('4', 's');
         }else {
-            menu.add(0, 0, 0, "Datos de usuario").setShortcut('3', 'c');
-            menu.add(0, 5, 0, "Login con email y clave").setShortcut('3', 'c');
+            //menu.add(0, 0, 0, "Datos de usuario").setShortcut('3', 'c');
+            menu.add(0, 5, 0, "Acceso o registro").setShortcut('3', 'c');
             menu.add(0, 4, 0, "Acerca de").setShortcut('4', 's');
         }
         return true;
@@ -518,7 +534,19 @@ public void recibir(JSONObject jsonObj ){
             webView.getSettings().setBuiltInZoomControls(true);
             webView.setWebViewClient(new WebViewClient());
             webView.getSettings().setJavaScriptEnabled(true);
-            webView.loadUrl(jsonObj.getString("url").toString());
+            hay_notificacion=prefs.getString("url_not", "");
+            System.out.println("----recibido_url--ccccccccccccc" + hay_notificacion);
+           if (hay_notificacion.equals(""))
+               webView.loadUrl(jsonObj.getString("url").toString());
+            else {
+               SharedPreferences.Editor editor = prefs.edit();
+               editor.putString("url_not", "" );
+               editor.commit();
+               webView.loadUrl(hay_notificacion);
+
+
+           }
+
         }
         if ( jsonObj.has("version")) {
             float ver=Float.parseFloat(jsonObj.getString("version").toString());
@@ -604,6 +632,20 @@ public void recibir(JSONObject jsonObj ){
     }
     public void removeObserver(IObservable observer){
         observerlist.remove(observer);
+    }
+public void webBrowser(String url){
+    webView.getSettings().setBuiltInZoomControls(true);
+    webView.setWebViewClient(new WebViewClient());
+    webView.getSettings().setJavaScriptEnabled(true);
+    if (url.indexOf("http://")==-1 && url.indexOf("https://")==-1) {
+
+        webView.loadUrl("http://" + url);
+    }
+    else {
+
+        webView.loadUrl(url);
+    }
+
     }
 
 }

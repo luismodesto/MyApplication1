@@ -25,7 +25,13 @@
         android:background="#91f1f1f1"
         android:orientation="horizontal"
         android:paddingBottom="2dp" >
-
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_mensajes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_menu_revert" />
 
         <EditText
             android:id="@+id/messageEditText"

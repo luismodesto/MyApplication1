@@ -44,7 +44,7 @@ public class PushNotificationService extends GcmListenerService {
     mensajes mensa1=new mensajes();
     Contactos conta1=new Contactos();
     httpRequest request;
-
+    MainActivity context;
 
     @Override
     public void onMessageReceived (String from, Bundle data) { //onMessageRecived
@@ -54,6 +54,8 @@ public class PushNotificationService extends GcmListenerService {
         String tipo = data.getString("tipo");
         System.out.println("recibido metodo 1 " + from + message + origen);
         //triggerNotification(message, Integer.parseInt(tipo), "String destino");
+        context=MainActivity.activity;
+
         Class[] parameterTypes = new Class[1];
         try {
             parameterTypes[0] = JSONObject.class;
@@ -68,8 +70,11 @@ public class PushNotificationService extends GcmListenerService {
         switch (tipo) {
 
             case "0":///////notificaciones novedades web
-
-                triggerNotification(message, 0, message);
+                prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("url_not", "" + origen);
+                editor.commit();
+                triggerNotification(message, 0, origen);
                 break;
 
             case "1"://///////////////mensajes de chat
@@ -86,7 +91,7 @@ public class PushNotificationService extends GcmListenerService {
                 triggerNotification(message, 1, "" + id_origen + "#" + id_destino);
                 break;
 
-            case "2":///pesca ubicacion
+            case "2":///
                 LocationManager locat = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 Location lastKnownLocation_byGps = locat.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
@@ -103,7 +108,7 @@ public class PushNotificationService extends GcmListenerService {
                 break;
 
 
-            //pesca foto
+            //
             case "3":break;
             case "4":break;
 
@@ -158,11 +163,16 @@ public class PushNotificationService extends GcmListenerService {
 
             //i.putExtra("id_origen", Integer.parseInt(id_origen)); //id_usuario el mio
             //i.putExtra("id_destino", Integer.parseInt(id_destino)); //id_ del otro
-            System.out.println("envia al cliente " + Integer.parseInt(trozos[0])+" - "+Integer.parseInt(trozos[1])+" - "+destino+"-" +con );
+            System.out.println("envia al cliente " + Integer.parseInt(trozos[0]) + " - " + Integer.parseInt(trozos[1]) + " - " + destino + "-" + con);
 
             notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            notificationIntent.putExtra("id_origen", Integer.parseInt(trozos[1])); //id_usuario el mio
-            notificationIntent.putExtra("id_destino", Integer.parseInt(trozos[0])); //id_ del otro
+           try {
+               notificationIntent.putExtra("id_origen", Integer.parseInt(trozos[1])); //id_usuario el mio
+               notificationIntent.putExtra("id_destino", Integer.parseInt(trozos[0])); //id_ del otro
+           }catch (Exception e){
+               e.printStackTrace();
+               System.out.println("dfgdfgd----------------------------------------------------------------------------------------------------***********************************************d");
+           }
             notificationIntent.putExtra("notification_id", con);
 
             PendingIntent contentIntent = PendingIntent.getActivity(this,con, notificationIntent, 0);
@@ -174,11 +184,16 @@ public class PushNotificationService extends GcmListenerService {
         if (tipo==0) {
             Intent notificationIntent = new Intent(this, MainActivity.class);
             notificationIntent.putExtra("url", destino);
+
+            System.out.println("Notification ----------------------"+destino);
             con=MainActivity.NOTIFICATION_ID;
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             notificationIntent.putExtra("notification_id", con);
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
             notification.contentIntent = contentIntent;
+            notification.flags |= Notification.FLAG_AUTO_CANCEL;
             notificationManager.notify(con,notification);//MainActivity.NOTIFICATION_ID, notification);
+            context.webBrowser(destino);
         }
 
 

@@ -147,7 +147,7 @@ public class httpRequest {
         alertDialog.setMessage("" + mensaje);
         alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-// aquí puedes añadir funciones
+// aquí puedes añadir Funciones
             }
         });
         if (icono.equals("1"))alertDialog.setIcon(R.drawable.ic_warning_24dp);

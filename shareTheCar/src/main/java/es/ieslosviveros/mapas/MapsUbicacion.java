@@ -7,9 +7,11 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,12 +23,13 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import es.ieslosviveros.kioto.DatosUsuario;
+import es.ieslosviveros.kioto.Funciones;
 import es.ieslosviveros.www.myapplication.R;
 
 public class MapsUbicacion extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap1;
-
+Funciones funciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,14 @@ public class MapsUbicacion extends FragmentActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         //savedInstanceState.
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_ubicacion);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 
 
@@ -55,23 +66,38 @@ public class MapsUbicacion extends FragmentActivity implements OnMapReadyCallbac
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
+        funciones=new Funciones();
         final String gpsLocationProvider = LocationManager.GPS_PROVIDER;
         final String networkLocationProvider = LocationManager.NETWORK_PROVIDER;
         Location lastKnownLocation_byGps = locat.getLastKnownLocation(gpsLocationProvider);
         Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(networkLocationProvider);
         SharedPreferences prefs = getSharedPreferences("" + R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
 
-        String lat=prefs.getString("ubicacionLatitud", "");
-        String lng=prefs.getString("ubicacionLongitud", "");
-        LatLng aqui;
+        String lat=prefs.getString("latitud", "");
+        String lng=prefs.getString("longitud", "");
+        LatLng aqui=funciones.getAqui();
+
+        //mMap1.addMarker(new MarkerOptions().position(aqui).title("Ubicación"));
+                new LatLng(0,0);
+
+
+        try {
         if (lat.length()>1){
             aqui = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
         }else {
-            aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
+
+                //
+            // aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
+
         }
         mMap1.addMarker(new MarkerOptions().position(aqui).title("Ubicación"));
         // Add a marker in Sydney and move the camera
          //mMap.moveCamera(CameraUpdateFactory.newLatLng(aqui));
+    }catch (Exception e)
+    {
+        e.printStackTrace();
+    }
+
 
         googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
@@ -124,12 +150,12 @@ public class MapsUbicacion extends FragmentActivity implements OnMapReadyCallbac
         mMap1.animateCamera(CameraUpdateFactory.zoomTo(18));
         SharedPreferences prefs = getSharedPreferences("" + R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("ubicacionLongitud", "" + aqui.longitude);
-        editor.putString("ubicacionLatitud", "" + aqui.latitude);
+        editor.putString("longitud", "" + aqui.longitude);
+        editor.putString("latitud", "" + aqui.latitude);
         editor.commit();
         EditText ubicacion=(EditText)findViewById(R.id.ubicacion);
         //ubicacion.setText(""+aqui.longitude+" - " +aqui.latitude);
-        DatosUsuario.ubicacion.setText(""+aqui.longitude+" - " +aqui.latitude);
+        DatosUsuario.ubicacion.setText(""+aqui.latitude+" / " +aqui.longitude);
         System.out.println("-------------pongo ubicacion rrastro--");
     }
 

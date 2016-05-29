@@ -8,8 +8,10 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -39,6 +41,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import es.ieslosviveros.kioto.Funciones;
 import es.ieslosviveros.kioto.MainActivity;
 import es.ieslosviveros.www.myapplication.R;
 
@@ -55,7 +58,7 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
     LatLng cole;
     LatLng casa;
     SharedPreferences prefs;
-
+Funciones funciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +72,18 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
         //LatLng casa = new LatLng(37.3264213, -5.9030752);
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading Articles...");
+        pDialog.setMessage("Cargando datos...");
         pDialog.show();
         prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
+funciones=new Funciones();
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_ruta);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
 
     }
 
@@ -91,24 +103,13 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
         //waypoints = new ArrayList();
         //new LatLng()
         cole = new LatLng(Double.parseDouble(getString(R.string.ies_lat)), Double.parseDouble(getString(R.string.ies_long)));
-        String ubLat=prefs.getString("ubicacionLatitud", "");
-        String ubLng=prefs.getString("ubicacionLongitud", "");
+        String ubLat=prefs.getString("latitud", "");
+        String ubLng=prefs.getString("longitud", "");
         if (ubLat.equals(""))
         {
+          casa=funciones.getAqui();
+        }else  casa = new LatLng(Double.parseDouble(ubLat), Double.parseDouble(ubLng));
 
-            LocationManager locat = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            Location lastKnownLocation_byGps = locat.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-            Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            LatLng aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-     //       LatLng aquiGps = new LatLng(lastKnownLocation_byGps.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-
-            ubLat=""+ aqui.latitude;
-            ubLng= ""+aqui.longitude;
-        }
-
-
-        casa = new LatLng(Double.parseDouble(ubLat), Double.parseDouble(ubLng));
 
 ///////leo los waypoints
         //Gson gson = new Gson();
@@ -138,10 +139,19 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
         //hidePDialog();
         /////////////////////////////
         url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + casa.latitude + "," + casa.longitude + "&destination=" + cole.latitude + "," + cole.longitude + "&mode=driving&sensor=false";
-        //ConectaHttp con=new ConectaHttp(this);
-        pDialog.show();
-        ponMarcadores();
-        //JSONObject datosSon =this.getRespuesta(url);
+        String ruta = prefs.getString("ruta", "");
+        if (ruta!="") {
+            System.out.println("-------------pinto guardada--"+ruta);
+            pintaRutaGuardada(ruta);
+
+        }
+        else {
+            System.out.println("-------------pinto calculada--");
+            //ConectaHttp con=new ConectaHttp(this);
+            pDialog.show();
+            ponMarcadores();
+        }
+            //JSONObject datosSon =this.getRespuesta(url);
 
         /////////////////////
         /*
@@ -155,8 +165,8 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
 
          */
 
-        ///////////////////////////////////////// add listener when touch
-        // añado marcador y recalculo ruta
+ ///////////////eventos       ///////////////////////////////////////// add listener when touch
+        // añado marcador y recalculo Ruta
 
         googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
@@ -214,7 +224,7 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
 
         });
 
-        ////////////////
+///////        ////////////////fin eventos//////////////////////////////////////////////////////////////////////////////////////////
         Log.d("fin", "-----------------------------");
 
     }
@@ -255,7 +265,7 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
             }
 
 
-            Log.d("Last latLng:", last.latitude + ", " + last.longitude);
+//            Log.d("Last latLng:", last.latitude + ", " + last.longitude);
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -367,7 +377,7 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
             System.out.println("-----");
             mMap.addMarker(markerOptions);
         }
-        /////////////////////preparo la cadena para buscar al ruta con los marcadores
+        /////////////////////preparo la cadena para buscar al Ruta con los marcadores
             String url1 = url + "&waypoints=";
             for ( int x = 0; x < ways; x++) {
                 if (x > 0) url1 = url1 + "|";
@@ -404,6 +414,30 @@ public class ActivityRuta extends FragmentActivity implements OnMapReadyCallback
 */
                 ///////////////////////////
     }
+
+    public void pintaRutaGuardada(String ruta) {
+       List<LatLng> list = decodePoly(ruta);
+       LatLng last = null;
+            System.out.println("--------------------------- mlista " + list.size());
+            for (int i = 0; i < list.size() - 1; i++) {
+                LatLng src = list.get(i);
+                LatLng dest = list.get(i + 1);
+                last = dest;
+                Log.d("Last latLng: pinto", last.latitude + ", " + last.longitude );
+                // Random rnd = new Random();
+                //   int color = Color.argb(255, rnd.nextInt(128), rnd.nextInt(128), rnd.nextInt(128));
+
+                Polyline line = mMap.addPolyline(new PolylineOptions()
+                        .add(new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude, dest.longitude))
+                        .width(6)
+                        .color(Color.GREEN));
+            }
+
+        //mMap.s
+        System.out.println("--salgo-------------");
+        hidePDialog();
+    }
+
 
 }
 

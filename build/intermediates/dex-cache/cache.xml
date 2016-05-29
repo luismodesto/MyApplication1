@@ -1,3 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\luis\.gradle\caches\modules-2\files-2.1\eu.the4thfloor.volley\com.android.volley\2015.05.28\b0b08cc0ac897e596abe6b263a9507cba875b705\com.android.volley-2015.05.28.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b0b08cc0ac897e596abe6b263a9507cba875b705">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.volley-2015.05.28_b004571caf903d47376410cbf8522d82f50d7dac.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-location-8.4.0_77ef3c8f2527d70a6046dffbbf788bc5f3fe4fee.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\internal_impl-23.3.0_3ebd8c25c9d68e9143573950005b8ed4125b6b7a.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-identity-8.4.0_475ebfadf3b5ac3896677d23b61bc564b3dfcdda.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-support-vector-drawable-23.3.0_a255d3efbb588552a9371d71e6c33aa33fc1b768.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-measurement-8.4.0_d2ce04783ef7a2e640dc2054bea979410b82b018.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-panorama-8.4.0_fc44f5d548f7478808ee662848d92d8969b67377.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-gcm-8.4.0_1a0aee8cc31cb78f8b998f699e5f77b456d5e3a1.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-cast-8.4.0_cb730dea2747073828e09be587db5ed370da547c.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-plus-8.4.0_7f173f2d2a1826540a6f0d92437f5fa17efa7fb2.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-safetynet-8.4.0_236f0a4f5617c78922f2a299fc38a8e50275c04e.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-drive-8.4.0_356a085b6cc2b8bde9a4f507f01067a2f9ca19e7.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\libs\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\gson-2.2.4_fe02ed6ba9d34a25f9143a4086bbfed550b415e1.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-analytics-8.4.0_9001758466f1985a01bfb2c2b7b5d4d9ed4f7ffe.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-fitness-8.4.0_a01b8a91af4d4ef75767fce231743cec110d7046.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-support-v4-23.3.0_281ffd8574631d9ef163e5fb0bba8ac97d8130a3.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-wallet-8.4.0_96eaa42004e60c740895cb8a0136dbf02cd4d5a2.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-base-8.4.0_c70ee34948e3631fd7353f4468607f1ac8cb7a5a.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-maps-8.4.0_0c7bc051fa3dd40dcfbbe2292168ae4878a450c7.jar" />
+    </item>
+    <item
+        jar="C:\Users\luis\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\support-annotations-23.3.0_62efd04754ccbee71519f45dc24c37f864d60247.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\internal_impl-23.0.0_09b6c1e9f90b8932abaa91bc50e3a7d91b1e1319.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-mediarouter-v7-23.0.0_20038a7f05c1fcadd24f4dc647b275fb3c7e0599.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\design\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-design-23.3.0_781d4b687f26e27c684b73d838cf6aec4a9be95a.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-appindexing-8.4.0_470071fca2544b84ad8217e1c56dc8d1a79b46f4.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-wearable-8.4.0_04e434cc8061e501e6106c087e2ad2879c6c7ce1.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-animated-vector-drawable-23.3.0_3488b280fc8faa023fea924c7ec4cd988ed26e55.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-appcompat-v7-23.3.0_38e7ef888d935e9e2a875dc8e59cd9bfc9d3a994.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-vision-8.4.0_28532ad9c430bcb87e3045ee00cd0862034de737.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-appinvite-8.4.0_a57d188f9ea04f44927932ffdf7e1393ebde321d.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-games-8.4.0_faabcf24b29dcf6d217432ecc5d589959fae0984.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.android.support-recyclerview-v7-23.3.0_4f389ec9acf7f1e2e9be760830f047f853bb2b35.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-ads-8.4.0_a118817cdf27615526b2004aba736dd5e842320e.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-basement-8.4.0_456b27f6a10e771fbd48afdd23848d416497e0fd.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-auth-8.4.0_2f8a778ff9e03d5aa6f4f0a50beb59e27d46b7cb.jar" />
+    </item>
+    <item
+        jar="C:\android\MyApplication1\shareTheCar\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="C:\android\MyApplication1\shareTheCar\build\intermediates\pre-dexed\release\com.google.android.gms-play-services-nearby-8.4.0_3675234dc6f7aafddafdfd0bdd70a52544420e88.jar" />
+    </item>
+
+</items>

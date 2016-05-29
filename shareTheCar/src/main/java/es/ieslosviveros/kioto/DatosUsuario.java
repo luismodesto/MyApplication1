@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -136,7 +137,7 @@ public class DatosUsuario extends AppCompatActivity {
                 //Intent i = new Intent(this,LoginActivity.class);
                 startActivity(intent);
                 //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences();
-                ubicacion.setText(prefs.getString("ubicacionLatitud", "") + " - " + prefs.getString("ubicacionLongitud", ""));
+                ubicacion.setText(prefs.getString("latitud", "") + " - " + prefs.getString("longitud", ""));
             }
         });
 
@@ -177,7 +178,7 @@ public class DatosUsuario extends AppCompatActivity {
                     params.put("android_id",""+prefs.getString("android_id", ""));
                     params.put("user_id",""+prefs.getString("user_id", ""));
                     String url1 = "http://www.ieslosviveros.es/androide/index.php";//?code=register"+cola+ubi;
-                    getRespuesta(url1,params);
+                    getRespuesta(url1,params,1);
                 }catch (Exception e) {
                     e.printStackTrace();
                     System.out.println("------cccccccccccccccccccccccccccc--");
@@ -222,7 +223,18 @@ public class DatosUsuario extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_usuario);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+
     }
+
 
 
     @Override
@@ -276,12 +288,19 @@ public class DatosUsuario extends AppCompatActivity {
             localidad.setText(prefs.getString("localidad", ""));
             codigopostal.setText(prefs.getString("codigopostal", ""));
             curso.setText(prefs.getString("curso", ""));
-            ubicacion.setText(prefs.getString("ubicacion", ""));
-            busco.setChecked(Boolean.valueOf(prefs.getString("busco", "")));
+            ubicacion.setText(prefs.getString("latitud", "")+" / "+prefs.getString("longitud", ""));
+            //if (prefs.getString("busco", "").equals("2"))busco.setChecked(true);
+            //if (prefs.getString("tengo", "").equals("2"))tengo.setChecked(true);
+            busco.setChecked(Boolean.valueOf(prefs.getString("B_coche", "")));
+            tengo.setChecked(Boolean.valueOf(prefs.getString("T_coche", "")));
+
+            System.out.println("------abusco--"+prefs.getString("B_coche", ""));
+            System.out.println("------atengo--"+prefs.getString("T_coche", ""));
 
             plazas.setSelection(Integer.parseInt(prefs.getString("plazas", "")) - 1);
-            tengo.setChecked(Boolean.valueOf(prefs.getString("tengo", "")));
-            if (prefs.getString("turno", "").equals(1))manana.setChecked(true);
+
+            System.out.println("------aturno--"+prefs.getString("turno", ""));
+            if (prefs.getString("turno", "").equals("1"))manana.setChecked(true);
             else tarde.setChecked(true);
 
         }catch (Exception e) {
@@ -291,8 +310,9 @@ public class DatosUsuario extends AppCompatActivity {
 
     }
 
-    public void guardaDatos(){
+    public void guardaDatos(int resp){
         String turn="1";
+        if (tarde.isChecked())turn="2";
         //String android_id = Settings.Secure.getString(getContext().getContentResolver(),Settings.Secure.ANDROID_ID);
         String android_id = Secure.getString(getContentResolver(), Secure.ANDROID_ID);
         try{
@@ -302,7 +322,7 @@ public class DatosUsuario extends AppCompatActivity {
 
         if (prefs.getString("android_id", "").length()<2)editor.putString("android_id", "" + android_id);
 
-            editor.putString("nombre", "" + nombre.getText());
+        editor.putString("nombre", "" + nombre.getText());
         editor.putString("apellidos", "" + apellidos.getText());
         editor.putString("android_id", android_id  );
         editor.putString("email",""+email.getText());
@@ -313,11 +333,10 @@ public class DatosUsuario extends AppCompatActivity {
         editor.putString("ubicacion", "" + ubicacion.getText());
         editor.putString("busco", "" + busco.isChecked());
         editor.putString("tengo", "" + tengo.isChecked());
-            if (tarde.isChecked())turn="2";
         editor.putString("turno", turn );
         editor.putString("plazas", "" + plazas.getSelectedItem().toString());
         editor.commit();
-        String ubi="&longitud="+prefs.getString("ubicacionLongitud", "")+"&latitud="+prefs.getString("ubicacionLatitud", "");//+"&ruta="+URLEncoder.encode(prefs.getString("ruta", ""), "UTF-8");
+        String ubi="&longitud="+prefs.getString("longitud", "")+"&latitud="+prefs.getString("latitud", "");//+"&Ruta="+URLEncoder.encode(prefs.getString("Ruta", ""), "UTF-8");
             System.out.println("------a--");
 
            parametros.clear();
@@ -335,20 +354,20 @@ public class DatosUsuario extends AppCompatActivity {
         parametros.put("T_coche",""+tengo.isChecked());
         parametros.put("turno",turn);
         parametros.put("plazas",""+plazas.getSelectedItem().toString());
-        parametros.put("longitud",""+prefs.getString("ubicacionLongitud", ""));
-        parametros.put("latitud",""+prefs.getString("ubicacionLatitud", ""));
+        parametros.put("longitud",""+prefs.getString("longitud", ""));
+        parametros.put("latitud",""+prefs.getString("latitud", ""));
         parametros.put("ruta",""+prefs.getString("ruta", ""));
         parametros.put("android_id",""+prefs.getString("android_id", ""));
         parametros.put("user_id",""+prefs.getString("user_id", ""));
         parametros.put("reg_gcm_id", "" + prefs.getString(GCMClientManager.PROPERTY_REG_ID, ""));
             System.out.println("------b--");
 
-        String cola="&nombre="+ URLEncoder.encode(nombre.getText().toString(), "UTF-8")+"&apellidos="+URLEncoder.encode(apellidos.getText().toString(), "UTF-8") + "&email=" + URLEncoder.encode(email.getText().toString(), "UTF-8");
-        cola=cola+"&localidad="+URLEncoder.encode(localidad.getText().toString(), "UTF-8") + "&codigo_postal=" + URLEncoder.encode(codigopostal.getText().toString(), "UTF-8") + "&curso=" + URLEncoder.encode(curso.getText().toString(), "UTF-8");
-        cola=cola+"&ubicacion="+URLEncoder.encode(ubicacion.getText().toString(), "UTF-8")+"&B_coche="+URLEncoder.encode(""+busco.isChecked(), "UTF-8")+"&T_coche="+URLEncoder.encode(""+tengo.isChecked(), "UTF-8");
-        cola=cola+"&turno="+URLEncoder.encode(""+turno.getCheckedRadioButtonId(), "UTF-8")+"&plazas="+URLEncoder.encode(plazas.getSelectedItem().toString(), "UTF-8")+"&clave="+URLEncoder.encode(clave.getText().toString(), "UTF-8");
+        //String cola="&nombre="+ URLEncoder.encode(nombre.getText().toString(), "UTF-8")+"&apellidos="+URLEncoder.encode(apellidos.getText().toString(), "UTF-8") + "&email=" + URLEncoder.encode(email.getText().toString(), "UTF-8");
+        //cola=cola+"&localidad="+URLEncoder.encode(localidad.getText().toString(), "UTF-8") + "&codigo_postal=" + URLEncoder.encode(codigopostal.getText().toString(), "UTF-8") + "&curso=" + URLEncoder.encode(curso.getText().toString(), "UTF-8");
+        //cola=cola+"&ubicacion="+URLEncoder.encode(ubicacion.getText().toString(), "UTF-8")+"&B_coche="+URLEncoder.encode(""+busco.isChecked(), "UTF-8")+"&T_coche="+URLEncoder.encode(""+tengo.isChecked(), "UTF-8");
+        //cola=cola+"&turno="+URLEncoder.encode(""+turno.getCheckedRadioButtonId(), "UTF-8")+"&plazas="+URLEncoder.encode(plazas.getSelectedItem().toString(), "UTF-8")+"&clave="+URLEncoder.encode(clave.getText().toString(), "UTF-8");
         String url1 = "http://www.ieslosviveros.es/androide/index.php";//?code=register"+cola+ubi;
-        getRespuesta(url1,parametros);
+        getRespuesta(url1,parametros,resp);
         }catch (Exception e) {
             e.printStackTrace();
             System.out.println("------cccccccccccccccccccccccccccc--");
@@ -359,13 +378,13 @@ public class DatosUsuario extends AppCompatActivity {
     public void enviaDatos(){
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
-        pDialog.setMessage("Loading Articles...");
+        pDialog.setMessage("Cargando datos...");
         pDialog.show();
-        guardaDatos();
+        guardaDatos(1);
 
     }
 
-    public JSONObject getRespuesta(String url,Map<String, String> para) {
+    public JSONObject getRespuesta(String url,Map<String, String> para,final int respuesta) {
         final Map<String, String> params=new HashMap<String, String>(para);
         //final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         JSONObject resp=new JSONObject();
@@ -385,24 +404,24 @@ public class DatosUsuario extends AppCompatActivity {
 
                 //String Data=response.getEntity().getText().toString(); // reading the string value
 
-                try {
-                    JSONObject jsonObj = new JSONObject(response);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    if ( jsonObj.has("user_id")) {
-                        editor.putString("user_id", jsonObj.getString("user_id").toString() );
-                        editor.commit();
-                    }
-                    if ( jsonObj.has("clave")) {
-                        editor.putString("clave", jsonObj.getString("clave").toString() );
-                        editor.commit();
-                    }
+    try {
+        JSONObject jsonObj = new JSONObject(response);
+        SharedPreferences.Editor editor = prefs.edit();
+        if (jsonObj.has("user_id")) {
+            editor.putString("user_id", jsonObj.getString("user_id").toString());
+            editor.commit();
+        }
+        if (jsonObj.has("clave")) {
+            editor.putString("clave", jsonObj.getString("clave").toString());
+            editor.commit();
+        }
+        if (respuesta==1) {
+            alerta("" + jsonObj.getString("message").toString(), "" + jsonObj.getString("code").toString());
+        }
 
-                    alerta("" + jsonObj.getString("message").toString(),"" + jsonObj.getString("code").toString());
-
-
-                }catch (JSONException e) {
-                    e.printStackTrace();
-                }
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
 
 
             }
@@ -450,7 +469,7 @@ public void alerta(String mensaje,String icono){
     alertDialog.setMessage("" + mensaje);
     alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialog, int which) {
-// aquí puedes añadir funciones
+// aquí puedes añadir Funciones
         }
     });
     if (icono.equals("1"))alertDialog.setIcon(R.drawable.ic_warning_24dp);
@@ -489,7 +508,7 @@ public void setUbicacion(String valor){
                             params.put("android_id",""+prefs.getString("android_id", ""));
                             params.put("user_id",""+prefs.getString("user_id",""));
                             String url1 = "http://www.ieslosviveros.es/androide/index.php";//?code=register"+cola+ubi;
-                            getRespuesta(url1,params);
+                            getRespuesta(url1,params,1);
 
                         }catch (Exception e) {
                             e.printStackTrace();
@@ -509,6 +528,9 @@ public void setUbicacion(String valor){
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
-
+    public void onBackPressed() {
+        guardaDatos(0);
+        finish();
+    }
 }
 

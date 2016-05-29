@@ -13,10 +13,13 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -78,6 +81,8 @@ private PintaRuta pintaRuta;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        TextView texto=(TextView) findViewById(R.id.texto_en_mapa);
+        texto.setText("");
         mensas=new mensajes();
 
         pDialog = new ProgressDialog(this);
@@ -93,6 +98,14 @@ private PintaRuta pintaRuta;
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_maps);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 
 
@@ -110,7 +123,7 @@ private PintaRuta pintaRuta;
         mMap = googleMap;
         pintaRuta=new PintaRuta(mMap);
         prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);
-        pintaRuta.drawPath(prefs.getString("ruta", ""));
+        pintaRuta.drawPath(prefs.getString("Ruta", ""));
         ///creo  hhtp
 //http://www.ieslosviveros.es/androide/index.php?
 // x2=37.349061891050276&x1=37.44561547273462&y2=-5.948801269531283&y1=-6.031198730468783&code=get_clients
@@ -135,9 +148,11 @@ private PintaRuta pintaRuta;
         }
         Location lastKnownLocation_byGps = locat.getLastKnownLocation(gpsLocationProvider);
         Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(networkLocationProvider);
-        LatLng aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui"));
+        LatLng aqui= new LatLng(Double.parseDouble(getString(R.string.ies_lat)), Double.parseDouble(getString(R.string.ies_long)));
+        if (lastKnownLocation_byGps!=null) aqui = new LatLng(lastKnownLocation_byGps.getLatitude(), lastKnownLocation_byGps.getLongitude());
+        if (lastKnownLocation_byNetwork!=null) aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
 
+        mMap.addMarker(new MarkerOptions().position(aqui).title("Posicion actual"));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
 
         mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
@@ -208,11 +223,12 @@ private PintaRuta pintaRuta;
 
         //Obtenemos la última posición conocida
         //Location loc1 = loc.getLastKnownLocation() getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui " + x1 + " - " + y1 + " - " + x2 + " - " + y2));
-        mMap.addMarker(new MarkerOptions().position(dos).title("Marker 2 aqui"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(dos));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+      //  aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
+        //mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui " + x1 + " - " + y1 + " - " + x2 + " - " + y2));
+        LatLng cole = new LatLng(Double.parseDouble(getString(R.string.ies_lat)), Double.parseDouble(getString(R.string.ies_long)));
+        mMap.addMarker(new MarkerOptions().position(cole).title("IES los Viveros"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(cole));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
     }
 
@@ -293,7 +309,7 @@ private PintaRuta pintaRuta;
                 ChatMessage mensaje=new ChatMessage(Integer.parseInt(id_origen),Integer.parseInt(id_destino),date,mensa,Integer.parseInt(id_origen));
                 mensas.enviaMensaje(mensaje);
 
-// aquí puedes añadir funciones
+// aquí puedes añadir Funciones
             }
         });
         alertDialog.setIcon(R.drawable.ic_menu_send);

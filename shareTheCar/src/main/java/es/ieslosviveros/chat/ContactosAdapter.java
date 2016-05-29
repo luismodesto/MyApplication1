@@ -38,7 +38,6 @@ public class ContactosAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
 
-
         return chatContactoList.get(position);
     }
 

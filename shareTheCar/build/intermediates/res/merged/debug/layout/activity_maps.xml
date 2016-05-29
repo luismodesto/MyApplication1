@@ -6,31 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="es.ieslosviveros.mapas.buscaUsuarios" >
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-    <Button
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:text="Demo Button"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:paddingRight="10dp"/>
+        android:id="@+id/layout_rutas">
+
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/texto_en_mapa"
         android:layout_width="wrap_content"
-        android:layout_height="60dip"
-        android:text=" Rutas"
-        android:paddingTop="15dp"
+        android:layout_height="35dip"
+        android:text=" Pulsa en la ruta"
+        android:paddingTop="1dp"
         android:textColor="#0000ff"
-        android:textSize="20dp" />
+        android:textSize="15dp" />
     <ListView
         android:layout_weight="7"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:choiceMode="singleChoice"
         android:focusableInTouchMode="true"
@@ -40,4 +35,11 @@
         android:background="?android:attr/activatedBackgroundIndicator"
         android:id="@+id/lista_de_rutas"></ListView>
     </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_revert" />
 </fragment>

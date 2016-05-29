@@ -14,10 +14,16 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -57,6 +63,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import es.ieslosviveros.chat.ChatContacto;
 import es.ieslosviveros.chat.ChatMessage;
 import es.ieslosviveros.chat.mensajes;
 import es.ieslosviveros.kioto.MainActivity;
@@ -67,21 +74,28 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
     private GoogleMap mMap;
     public ProgressDialog pDialog;
     private mensajes mensas;
+    int sw=0;
+    SharedPreferences prefs;
+    Polyline line;
+    LatLng aqui;
+    Ruta selectedRuta;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    public ArrayList<Coches> rutas;
+    public ArrayList<Ruta> rutas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        TextView texto=(TextView) findViewById(R.id.texto_en_mapa);
+        texto.setText(" Pulsa en la ruta");
         pDialog = new ProgressDialog(this);
         // Showing progress dialog before making http request
         pDialog.setMessage("Cargando rutas...");
         pDialog.show();
-        rutas=new ArrayList<Coches>();
+        rutas=new ArrayList<Ruta>();
         mensas=new mensajes();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -89,6 +103,14 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_maps);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
     }
 
 
@@ -127,12 +149,24 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        Location lastKnownLocation_byGps = locat.getLastKnownLocation(gpsLocationProvider);
+        /*Location lastKnownLocation_byGps = locat.getLastKnownLocation(gpsLocationProvider);
         Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(networkLocationProvider);
         LatLng aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui"));
+        */
+        prefs = getSharedPreferences(""+R.string.preferencias, Context.MODE_PRIVATE);//PreferenceManager.getDefaultSharedPreferences(this);
+        String lat=prefs.getString("ubicacionLatitud", "");
+        String lon=prefs.getString("ubicacionLongitud", "");
+        if (lat!="" && lon!=""){
+            aqui = new LatLng(Double.parseDouble(lat), Double.parseDouble(lon));
+        }else
+        {
+            Location lastKnownLocation_byNetwork = locat.getLastKnownLocation(networkLocationProvider);
+            if (lastKnownLocation_byNetwork!=null)
+            aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
+        }
 
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+        mMap.addMarker(new MarkerOptions().position(aqui).title("Posicion"));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
         //String url = "http://www.ieslosviveros.es/androide/index.php?code=get_clients&x2=37.349061891050276&x1=37.44561547273462&y2=-5.948801269531283&y1=-6.031198730468783";
         String x1, x2, y1, y2, z1, z2, z3, z4;
@@ -162,41 +196,45 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
         ////////////////fin hhtp
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+   //     LatLng sydney = new LatLng(-34, 151);
         LatLng dos = new LatLng(37.383785094965, -6.0067499967032);
         //Obtenemos una referencia al LocationManager
 
 
-        if (lastKnownLocation_byGps == null) {
+    /*    if (lastKnownLocation_byGps == null) {
             //textView_GpsLocation.setText("GPS Last Location not available");
         }
-
+*/
 
 
         //Obtenemos la última posición conocida
         //Location loc1 = loc.getLastKnownLocation() getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui " + x1 + " - " + y1 + " - " + x2 + " - " + y2));
+      //  aqui = new LatLng(lastKnownLocation_byNetwork.getLatitude(), lastKnownLocation_byNetwork.getLongitude());
+       // mMap.addMarker(new MarkerOptions().position(aqui).title("Marker aqui " + x1 + " - " + y1 + " - " + x2 + " - " + y2));
         //mMap.addMarker(new MarkerOptions().position(dos).title("Marker 2 aqui"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(dos));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
         googleMap.setOnPolylineClickListener(new GoogleMap.OnPolylineClickListener() {
             @Override
             public void onPolylineClick(Polyline polyline) {
                 //do something with polyline
-                int pos=Integer.parseInt(polyline.getId().substring(2));
+                System.out.println("`Poly clickado el -----"+ selectedRuta.pos+" id "+ selectedRuta.id);
+                alert("", selectedRuta.curso, selectedRuta.id);
+                //selectedRuta
+
+               /* int pos=Integer.parseInt(polyline.getId().substring(2));
                 for (int x=0;x<rutas.size();x++){
-                    int pos1=Integer.parseInt(rutas.get(x).poly.substring(2));
+                    int pos1=Integer.parseInt(rutas.get(x).ruta.substring(2));
                     if (pos <pos1 ){
                         System.out.println("`Poly clickado el -----"+x+" id "+rutas.get(x).id);
                         alert("",rutas.get(x).curso,rutas.get(x).id);
                         x=rutas.size()+1;
                     }
                 }
+*/
 
-
-                System.out.println("`click on poly-----"+polyline.getId());
+                //System.out.println("`click on poly-----"+polyline.getId());
             }
         });
 
@@ -276,10 +314,10 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
                 String id_origen=prefs.getString("user_id", "");
                 String id_destino=id1;
                 String date = (DateFormat.format("dd-MM-yyyy hh:mm:ss", new java.util.Date()).toString());
-                String mensa="Hola, he visto que vivo cerca de tu ruta y me gustaría saber si hay sitio para mí en tu coche. Gracias";
+                String mensa="Hola, he visto que vivo cerca de tu Ruta y me gustaría saber si hay sitio para mí en tu coche. Gracias";
                 ChatMessage mensaje=new ChatMessage(Integer.parseInt(id_origen),Integer.parseInt(id_destino),date,mensa,Integer.parseInt(id_origen));
                 mensas.enviaMensaje(mensaje);
-// aquí puedes añadir funciones
+// aquí puedes añadir Funciones
             }
         });
         alertDialog.setIcon(R.drawable.ic_menu_send);
@@ -299,12 +337,70 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
 
 
     }
-
+/////////////////////////////////////////////////// pones las rutas/////////////////
     public void ponRutas(ArrayList datos, GoogleMap mc) {
         //borro todo
         //mc.clear();
         //añado todo
         // campos id, email, curso, lon,lat
+        ListView rutasListView = (ListView) findViewById(R.id.lista_de_rutas);
+
+        // ----Set autoscroll of listview when a new message arrives----//
+        rutasListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        rutasListView.setStackFromBottom(true);
+
+        ArrayList rutaslist = new ArrayList<Ruta>();
+        final RutaAdapter rutaAdapter = new RutaAdapter(this, rutaslist);
+        rutasListView.setAdapter(rutaAdapter);
+
+
+        rutaAdapter.clear();
+        //ArrayList<Ruta> tabla=miContacto.consulta();
+
+        for(int x=0;x<datos.size();x++) {
+            String cadena=datos.get(x).toString();
+            String [] items = cadena.split(",");
+            String id_1=items[0].substring(1);
+            int y=x+1;
+
+            String sub=items[3].substring(1);
+            sub=sub.substring(0, sub.length()-1);
+            Ruta ruta=new Ruta(id_1,items[1],items[2],sub,"R"+y);
+            rutas.add(x,ruta);
+            rutaAdapter.add(ruta);
+        }
+        rutaAdapter.notifyDataSetChanged();
+
+
+        //////////////////////////
+        LinearLayout relativeLayout = (LinearLayout) findViewById(R.id.layout_rutas);
+        relativeLayout.setClickable(true);
+
+rutasListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Ruta ruta=(Ruta)rutaAdapter.getItem(position);
+        System.out.println("-------------pulsas sobre   "+ruta.pos );
+        int color1=Color.BLUE;
+        int color2=Color.RED;
+        int color=color1;
+        if (sw==0){
+            sw=1;color=color1;
+        }else
+        {
+            sw=0;color=color2;
+        }
+        mMap.clear();
+        mMap.addMarker(new MarkerOptions().position(aqui).title("Posicion"));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+        drawPath(ruta, color,position);
+
+    }
+});
+
+
+
+        /*
         int colores[]={Color.GREEN,Color.BLUE,Color.RED,Color.CYAN,Color.YELLOW,Color.MAGENTA};
         int color;
         Random rnd = new Random();
@@ -333,7 +429,7 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
             al1 = (ArrayList) dato;
 
             System.out.println("punto-------------------------------------------------" + al1.get(0).toString());
-        }
+        }*/
 //for( String s : datos ){
         //   System.out.println( s );
         //  }
@@ -452,12 +548,13 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
         client.disconnect();
     }
 
-    public void drawPath(String result,int color,int y) {
+    public void drawPath(Ruta ruta,int color,int y) {
+        selectedRuta=ruta;
         try {
+            if (line!=null) line.remove();
+            String encodedString = ruta.ruta;
 
-            String encodedString = result;
-
-            System.out.println("---------------" + result);
+            System.out.println("---------------" + ruta.id);
             Log.d("test: ", encodedString);
             List<LatLng> list = decodePoly(encodedString);
 
@@ -472,9 +569,9 @@ public class buscaRuta extends FragmentActivity implements OnMapReadyCallback, G
                 //Double d=last.longitude;
 
                 // Log.d("Last latLng: pinto- ", last.latitude + ", " + last.longitude );
-                Polyline line = mMap.addPolyline(new PolylineOptions().add(new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude, dest.longitude)).width(6).color(color));
+                line = mMap.addPolyline(new PolylineOptions().add(new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude, dest.longitude)).width(6).color(color));
                 line.setClickable(true);
-                rutas.get(y).poly=line.getId();
+                rutas.get(y).ruta=line.getId();
                 //linea.add(new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude, dest.longitude));
 
                 //mMap.addPolyline(linea);

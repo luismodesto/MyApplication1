@@ -7,4 +7,13 @@
     android:layout_height="match_parent"
     android:layout_alignParentBottom="true"
     android:layout_below="@+id/lineartab"
-    tools:context="es.ieslosviveros.mapas.MapsUbicacion" />
+    tools:context="es.ieslosviveros.mapas.MapsUbicacion" >
+<android.support.design.widget.FloatingActionButton
+android:id="@+id/fab_ubicacion"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="bottom|end"
+android:layout_margin="@dimen/fab_margin"
+android:src="@android:drawable/ic_menu_revert" />
+
+    </fragment>

@@ -4,6 +4,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObservable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -97,7 +98,7 @@ public class mensajes extends AppCompatActivity implements IObservable{
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.sendMessageButton:
-                        System.out.println("----mensajeo--ccccccccccccc"+useryo+" - "+userotro);
+                        System.out.println("----mensajeo--ccccccccccccc" + useryo + " - " + userotro);
                         sendTextMessage(v);
 
                 }
@@ -114,12 +115,12 @@ public class mensajes extends AppCompatActivity implements IObservable{
                 if (fin == 80) {
                     //arregloCadenas.add("cadena " + cont++);
                     //adaptador.notifyDataSetChanged();
-                    int total=miMensaje.cuenta_usuario(userotro);
+                    int total = miMensaje.cuenta_usuario(userotro);
 
-                    int dif=0;
-                    if (pos+cant>total) dif=pos-cant;
-                    else  pos+=cant;
-                    addmensajes(pos,cant-dif);
+                    int dif = 0;
+                    if (pos + cant > total) dif = pos - cant;
+                    else pos += cant;
+                    addmensajes(pos, cant - dif);
                 }
             }
 
@@ -128,21 +129,28 @@ public class mensajes extends AppCompatActivity implements IObservable{
                 fin = (int) totalItemCount - visibleItemCount - firstVisibleItem;
                 //System.out.println("--------------------------------Sroll posicion primero " + firstVisibleItem + " visibles items " + visibleItemCount + " total items " + totalItemCount);
 
-                if(mLastFirstVisibleItem<firstVisibleItem)
-                {
+                if (mLastFirstVisibleItem < firstVisibleItem) {
                     Log.i("SCROLLING DOWN", "TRUE");
                 }
-                if(mLastFirstVisibleItem>firstVisibleItem)
-                {
-                    Log.i("SCROLLING UP","TRUE");
-                    int total=miMensaje.cuenta_usuario(userotro);
+                if (mLastFirstVisibleItem > firstVisibleItem) {
+                    Log.i("SCROLLING UP", "TRUE");
+                    int total = miMensaje.cuenta_usuario(userotro);
 /*
                     int dif=0;
                     if (pos+cant>total) dif=pos-cant;
                     else  pos+=cant;
                     addmensajes(pos,cant-dif);*/
                 }
-                mLastFirstVisibleItem=firstVisibleItem;
+                mLastFirstVisibleItem = firstVisibleItem;
+            }
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_mensajes);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
 
